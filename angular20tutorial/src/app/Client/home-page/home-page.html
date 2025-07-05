@@ -1,0 +1,166 @@
+<header class="main-header">
+  <div class="header-container">
+    <a (click)="scrollToTop()" class="logo">MyPortfolio</a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#hero" [class.active]="activeSection === 'hero'">Home</a></li>
+        <li><a href="#about" [class.active]="activeSection === 'about'">About</a></li>
+        <li><a href="#portfolio" [class.active]="activeSection === 'portfolio'">Portfolio</a></li>
+        <li><a href="#contact" [class.active]="activeSection === 'contact'">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section id="hero" class="hero">
+  <div class="hero-container">
+    <div class="hero-image">
+      <img src="https://via.placeholder.com/300" alt="Your Name">
+    </div>
+    <div class="hero-intro">
+      <h1>Hi, I'm Bùi Viết Toại</h1>
+      <h2>A Passionate Web Developer</h2>
+      <p>
+        Welcome to my personal portfolio. I specialize in creating modern and responsive web applications.
+      </p>
+      <a href="#portfolio" class="cta-button">View My Work</a>
+    </div>
+  </div>
+</section>
+
+<section class="about-me" id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+  
+      <!-- Education Section -->
+      <div class="about-section">
+        <h3>Education</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>FPT University</h4>
+            <p><strong>Bachelor of Science in Software Engineering</strong>, 2020 - 2024</p>
+            <p>Specialized in web development and software architecture. Awarded for academic excellence in the final year project.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Online Coursework</h4>
+            <p><strong>Advanced Angular Certification</strong>, 2023</p>
+            <p>Completed an in-depth course on advanced Angular features, including RxJS, NgRx, and performance optimization.</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Experience Section -->
+      <div class="about-section">
+        <h3>Experience</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>Tech Solutions Inc.</h4>
+            <p><strong>Frontend Developer</strong>, 2024 - Present</p>
+            <ul>
+              <li>Developed and maintained responsive user interfaces for client-facing web applications using Angular and TypeScript.</li>
+              <li>Collaborated with UI/UX designers to translate wireframes into high-quality, functional components.</li>
+              <li>Improved application performance by 20% by optimizing state management and lazy loading modules.</li>
+            </ul>
+          </div>
+          <div class="timeline-item">
+            <h4>Creative Agency</h4>
+            <p><strong>Web Developer Intern</strong>, Summer 2023</p>
+            <ul>
+              <li>Assisted the development team in building and testing new features for a content management system.</li>
+              <li>Gained hands-on experience with Git, agile methodologies, and team collaboration tools.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Skills Section -->
+      <div class="about-section">
+        <h3>Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-item">Angular</div>
+          <div class="skill-item">TypeScript</div>
+          <div class="skill-item">JavaScript (ES6+)</div>
+          <div class="skill-item">RxJS</div>
+          <div class="skill-item">NgRx</div>
+          <div class="skill-item">HTML5</div>
+          <div class="skill-item">CSS3 & SCSS</div>
+          <div class="skill-item">Node.js</div>
+          <div class="skill-item">REST APIs</div>
+          <div class="skill-item">Git & GitHub</div>
+          <div class="skill-item">Agile/Scrum</div>
+          <div class="skill-item">Problem Solving</div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+
+<section id="portfolio" class="portfolio">
+  <h2 class="section-title">My Portfolio</h2>
+  <div class="portfolio-grid">
+    <!-- Portfolio Item 1 -->
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400x300" alt="Project 1" class="portfolio-image">
+      <div class="portfolio-info">
+        <h3 class="portfolio-item-title">Project One</h3>
+        <p class="portfolio-item-description">A brief description of the first project, highlighting the key technologies and features.</p>
+        <a href="#" class="portfolio-link">View Project</a>
+      </div>
+    </div>
+
+    <!-- Portfolio Item 2 -->
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400x300" alt="Project 2" class="portfolio-image">
+      <div class="portfolio-info">
+        <h3 class="portfolio-item-title">Project Two</h3>
+        <p class="portfolio-item-description">A brief description of the second project, highlighting the key technologies and features.</p>
+        <a href="#" class="portfolio-link">View Project</a>
+      </div>
+    </div>
+
+    <!-- Portfolio Item 3 -->
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400x300" alt="Project 3" class="portfolio-image">
+      <div class="portfolio-info">
+        <h3 class="portfolio-item-title">Project Three</h3>
+        <p class="portfolio-item-description">A brief description of the third project, highlighting the key technologies and features.</p>
+        <a href="#" class="portfolio-link">View Project</a>
+      </div>
+    </div>
+
+    <!-- Portfolio Item 4 -->
+    <div class="portfolio-item">
+      <img src="https://via.placeholder.com/400x300" alt="Project 4" class="portfolio-image">
+      <div class="portfolio-info">
+        <h3 class="portfolio-item-title">Project Four</h3>
+        <p class="portfolio-item-description">A brief description of the fourth project, highlighting the key technologies and features.</p>
+        <a href="#" class="portfolio-link">View Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2 class="section-title">Contact Me</h2>
+  <div class="contact-container">
+    <p>I'm currently available for freelance work. If you have a project in mind or just want to say hello, feel free to get in touch!</p>
+    <div class="contact-details">
+      <a href="mailto:bui.viet.toai.dev@email.com" class="contact-item">
+        <span class="contact-icon">📧</span>
+        <span>bui.viet.toai.dev&#64;email.com</span>
+      </a>
+      <a href="tel:+84123456789" class="contact-item">
+        <span class="contact-icon">📞</span>
+        <span>+84 123 456 789</span>
+      </a>
+      <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="contact-item">
+        <span class="contact-icon">💼</span>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<button *ngIf="showScrollToTop" (click)="scrollToTop()" class="scroll-to-top">
+  &uarr;
+</button>

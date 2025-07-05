@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": "3d60",
+      "username": "admin@vmms.com.vn",
+      "password": "secret"
+    },
+    {
+      "id": "3676",
+      "username": "toaidm@vmms.com.vn",
+      "password": "secret"
+    },
+    {
+      "id": "70fc",
+      "username": "phulh@vmms.com.vn",
+      "password": "secret"
+    },
+    {
+      "id": "8a81",
+      "username": "user@vmms.com.vn",
+      "password": "secret"
+    },
+    {
+      "id": "808c",
+      "username": "toaidc@vmms.com.vn",
+      "password": "toaibui1409"
+    }
+  ]
+}
