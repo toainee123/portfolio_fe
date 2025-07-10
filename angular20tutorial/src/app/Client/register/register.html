@@ -1,1 +1,54 @@
-<p>register works!</p>
+<div class="d-flex align-items-center justify-content-center vh-100 bg-light">
+  <div class="card shadow-sm" style="min-width: 380px;">
+    <div class="card-body p-4">
+      <h3 class="card-title mb-4 text-center">Create your account</h3>
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+        <!-- Name -->
+        <div class="form-floating mb-3">
+            <input
+              type="name"
+              id="name"
+              name="name"
+              class="form-control"
+              ngModel
+              required
+              placeholder="name"
+            />
+            <label for="name">Username</label>
+          </div>
+        <!-- Email -->
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            ngModel
+            required
+            placeholder="name@example.com"
+          />
+          <label for="email">Email address</label>
+        </div>
+
+        <!-- Password -->
+        <div class="form-floating mb-4">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            ngModel
+            required
+            placeholder="Password"
+          />
+          <label for="password">Password</label>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn btn-success w-100" [disabled]="registerForm.invalid">
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
