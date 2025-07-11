@@ -11,6 +11,18 @@ import { CommonModule } from '@angular/common';
 export class HomePage implements OnInit {
   showScrollToTop = false;
   activeSection = '';
+  email: string | null = null;
+  
+  constructor() {
+    // Retrieve token from localStorage
+    const storedResponse = localStorage.getItem('respone');
+    if (storedResponse) {
+      const response = JSON.parse(storedResponse);
+      this.email = response.email || null; // Extract token if available
+      console.log('Token from localStorage:', this.email);
+      
+    }
+  } 
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

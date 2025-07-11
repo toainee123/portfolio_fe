@@ -2,13 +2,13 @@
   <div class="card shadow-sm" style="min-width: 380px;">
     <div class="card-body p-4">
       <h3 class="card-title mb-4 text-center">Create your account</h3>
-      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <!-- Name -->
         <div class="form-floating mb-3">
             <input
               type="name"
-              id="name"
-              name="name"
+              id="username"
+              formControlName="username"
               class="form-control"
               ngModel
               required
@@ -21,7 +21,7 @@
           <input
             type="email"
             id="email"
-            name="email"
+            formControlName="email"
             class="form-control"
             ngModel
             required
@@ -35,7 +35,7 @@
           <input
             type="password"
             id="password"
-            name="password"
+            formControlName="password"
             class="form-control"
             ngModel
             required
