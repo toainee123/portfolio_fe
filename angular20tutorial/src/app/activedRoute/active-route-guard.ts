@@ -4,7 +4,7 @@ import { inject } from '@angular/core';
 
 export const activeRouteGuard: CanActivateFn = (route, state) => {
 
-  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  const isLoggedIn = localStorage.getItem('token');
   const router = inject(Router);
 
   if (isLoggedIn !== null) {
