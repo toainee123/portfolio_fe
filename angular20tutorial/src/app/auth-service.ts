@@ -17,4 +17,9 @@ export class AuthService {
   register(user: any) : Observable<any> {
     return this.http.post(this.apiUrl + '/register', user);
   }
+
+  // Logs out the current user by clearing the saved JWT token
+  logout(): void {
+    localStorage.removeItem('token');
+  }
 }
