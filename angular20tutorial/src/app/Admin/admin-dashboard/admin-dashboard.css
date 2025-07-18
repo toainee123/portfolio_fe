@@ -1,14 +1,14 @@
-/* Sidebar styles */
-#sidebar {
-  width: 250px;
-  min-height: 100vh;
+
+
+/* Table styles */
+.table thead th {
+  vertical-align: middle;
 }
 
-#page-content {
-  width: 100%;
+.table tbody tr:hover {
+  background-color: #f8f9fa;
 }
 
-.nav-link.active {
-  background-color: rgba(255, 255, 255, 0.1);
-  font-weight: 600;
+.badge {
+  font-size: 0.75rem;
 }

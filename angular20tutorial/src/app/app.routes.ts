@@ -5,6 +5,7 @@ import { LoginPage } from './Client/login-page/login-page';
 import { Register } from './Client/register/register';
 import { UserManagerment } from './Admin/user-managerment/user-managerment';
 import { activeRouteGuard } from './activedRoute/active-route-guard';
+import { ExpMaangerment } from './Admin/exp-maangerment/exp-maangerment';
 
 export const routes: Routes = [
     {
@@ -23,6 +24,10 @@ export const routes: Routes = [
             {
                 path: 'users',
                 component: UserManagerment
+            },
+            {
+                path: 'experiences',
+                component: ExpMaangerment
             }
         ]
     },
