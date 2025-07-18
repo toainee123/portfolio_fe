@@ -333,6 +333,21 @@
   color: #fff;
 }
 
+.skill-title{
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-align: left;
+}
+.skill-title-item{
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
 /* Portfolio Grid */
 .portfolio-grid {
   display: grid;

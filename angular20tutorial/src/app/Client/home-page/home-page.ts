@@ -1,6 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { SkillService } from '../../service/serviceSkill/skill-service';
+import { ServiceInfo } from '../../service/serviceInfomation/service-info';
+import { Experiences } from '../../service/serviceExp/experiences';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.html',
@@ -11,17 +13,17 @@ import { CommonModule } from '@angular/common';
 export class HomePage implements OnInit {
   showScrollToTop = false;
   activeSection = '';
-  email: string | null = null;
-  
-  constructor() {
-    // Retrieve token from localStorage
-    const storedResponse = localStorage.getItem('respone');
-    if (storedResponse) {
-      const response = JSON.parse(storedResponse);
-      this.email = response.email || null; // Extract token if available
-      console.log('Token from localStorage:', this.email);
-      
-    }
+  skills : any  =[]; // Initialize skills as an empty array  
+  info : any = []; // Initialize info as an empty object
+  experiences: any = {}; // Initialize experiences as an empty array
+  constructor(
+    private skillService: SkillService,
+    private infoService: ServiceInfo,// Assuming you want to use ServiceInfo as well
+    private experienceService: Experiences // Assuming you want to use ServiceInfo for experiences
+  ) {
+    this.getSkills();
+    this.getInfomation(); // Fetch Infomation when the component is initialized
+    this.getExperiences(); // Fetch experiences when the component is initialized
   } 
 
   @HostListener('window:scroll', [])
@@ -34,7 +36,7 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
-    this.setupSmoothScrolling();
+    this.setupSmoothScrolling();    
   }
 
   setupSmoothScrolling() {
@@ -58,7 +60,6 @@ export class HomePage implements OnInit {
   setActiveSection() {
     const sections = document.querySelectorAll('section[id]');
     let currentSection = '';
-
     sections.forEach(section => {
       const sectionTop = (section as HTMLElement).offsetTop;
       const sectionHeight = section.clientHeight;
@@ -68,5 +69,45 @@ export class HomePage implements OnInit {
     });
     this.activeSection = currentSection;
   }
+
+  getSkills() {
+    this.skillService.getAllSkills().subscribe({
+      next: (res) => {
+        this.skills = res;
+        console.log('Skills fetched successfully:', this.skills);
+      },
+      error: (err) => {
+        console.error('Error fetching skills:', err);
+      }
+    });
+  }
+  getInfomation(){
+    this.infoService.getServiceInfo().subscribe({
+      next: (res) => {
+        this.info = res.information;
+        console.log('Service information fetched successfully:', this.info);
+      },
+      error: (err) => {
+        console.error('Error fetching service information:', err);
+      }
+    });
+  }
+
+  getExperiences() {
+    this.experienceService.getAllExperiences().subscribe({
+      next: (res) => {
+        this.experiences = res.experiences;
+        console.log('Experiences fetched successfully:', this.experiences);
+      },
+      error: (err) => {
+        console.error('Error fetching experiences:', err);
+      }
+    });
+  }
+
+}
+
+function onWindowScroll() {
+  throw new Error('Function not implemented.');
 }
 
