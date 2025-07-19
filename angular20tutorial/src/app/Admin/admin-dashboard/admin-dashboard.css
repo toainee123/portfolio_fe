@@ -1,5 +1,18 @@
 
-
+/* Sidebar styles */
+#sidebar {
+    width: 250px;
+    min-height: 100vh;
+  }
+  
+  #page-content {
+    width: 100%;
+  }
+  
+  .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+  }
 /* Table styles */
 .table thead th {
   vertical-align: middle;
