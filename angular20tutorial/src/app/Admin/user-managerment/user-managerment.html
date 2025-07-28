@@ -1,44 +1,100 @@
 <div class="container">
-    <div id="page-content" class="flex-grow-1 p-4">
-      <h2>Welcome, Admin!</h2>>
-      <div class="table-responsive mt-4">
-        <table class="table table-striped table-hover align-middle">
-          <thead class="table-dark">
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Status</th>
-              <th class="text-center">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let user of users; let i = index">
-              <td>{{ i + 1 }}</td>
-              <td>{{ user.name }}</td>
-              <td>{{ user.email }}</td>
-              <td>
-                <span class="badge" [ngClass]="user.active ? 'bg-success' : 'bg-secondary'">
-                  {{ user.active ? 'Active' : 'Inactive' }}
-                </span>
-              </td>
-              <td class="text-center">
-                <button class="btn btn-sm btn-primary me-2" (click)="updateUser(user)">
-                  <i class="bi bi-pencil-square"></i> Update
-                </button>
-                <button class="btn btn-sm btn-danger" (click)="deleteUser(user)">
-                  <i class="bi bi-trash"></i> Delete
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-</div> 
-      <div class="text-end mt-3">
-        <button class="btn btn-success" (click)="addUser()">
-          <i class="bi bi-plus-circle"></i> Add User
-        </button>
-      </div>
+  <div id="page-content" class="flex-grow-1 p-4">
+    <h2>Xin chào, Admin!</h2>
+    <div>
+      <button class="btn btn-primary" (click)="open(content)">Thêm quản trị viên</button>
     </div>
+    <div class="table-responsive mt-4">
+      <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              <span class="badge" [ngClass]="user.roll ? 'bg-success' : 'bg-secondary'">
+                {{ user.roll == 1 ? 'User' : 'Admin' }}
+              </span>
+            </td>
+            <td class="text-center">
+              <!-- <button class="btn btn-sm btn-primary me-2" (click)="updateUser(user, updateUserContent)">
+                <i class="bi bi-pencil-square"></i> Update
+              </button> -->
+              <button class="btn btn-sm btn-danger" (click)="deleteUser(user._id)">
+                <i class="bi bi-trash"></i> Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="isSuccess" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+    Thao tác thành công!
+  </div>
+  <div *ngIf="isError" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+    Thao tác thất bại!
+  </div>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Thêm quản trị viên</h4>
+    </div>
+    <div class="modal-body">
+      <form #addUserForm="ngForm">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" ngModel required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" ngModel required>
+        </div>
+        <div class="mb-3">
+          <label for="role" class="form-label">Role</label>
+          <select id="role" name="role" class="form-select" ngModel required>
+            <option [ngValue]="1">User</option>
+            <option [ngValue]="0">Admin</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" (click)="modal.close()">Đóng</button>
+      <button class="btn btn-primary" (click)="addUser(addUserForm)">Thêm</button>
+    </div>
+  </ng-template>
+  <!-- <ng-template #updateUserContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Cập nhật thông tin quản trị viên</h4>
+    </div>
+    <div class="modal-body">
+      <form #updateUserForm="ngForm">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userById.email" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="text" value="1" class="form-control" id="password" name="password" [(ngModel)]="userById.password" required>
+        </div>
+        <div class="mb-3">
+          <label for="role" class="form-label">Role</label>
+          <select id="role" name="role" class="form-select" [(ngModel)]="userById.role" required>
+            <option *ngFor="let role of users" [value]="role.id">{{ role.name }}</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" (click)="modal.close()">Đóng</button>
+      <button class="btn btn-primary" (click)="updateUser(userById, updateUserContent)">Thêm</button>
+    </div>
+  </ng-template> -->
 </div>

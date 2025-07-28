@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,16 +11,26 @@ export class UserService {
 
   }
 
-  getUsers(){
-    return this.http.get('http://localhost:3000/users')
+  getUsers(): Observable<any>{
+    return this.http.get('http://localhost:3000/api/users') 
   }
-  createUser(user: any){
-    return this.http.post('http://localhost:3000/users', user)
+  getUserById(id: string, token: string): Observable<any>{
+    return this.http.get('http://localhost:3000/api/users/' + id, {
+      headers: {Authorization: `Bearer ${token}`}
+    })
   }
-  deleteUser(id: string){
-    return this.http.delete('http://localhost:3000/users/' + id)
+  createUser(user: any, token: string): Observable<any>{
+    return this.http.post('http://localhost:3000/api/users', user, 
+      {headers: {Authorization: `Bearer ${token}`}})
   }
-  updateUser(id: string, user: any){
-    return this.http.put('http://localhost:3000/users/' + id, user)
+  deleteUser(id: string, token: string): Observable<any>{
+    return this.http.delete('http://localhost:3000/api/users/' + id, {
+      headers: {Authorization: `Bearer ${token}`}
+    })
+  }
+  updateUser(id: string, user: any, token: string): Observable<any>{
+    return this.http.put('http://localhost:3000/api/users/' + id, user, {
+      headers: {Authorization: `Bearer ${token}`}
+    })
   }
 }
