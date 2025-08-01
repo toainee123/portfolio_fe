@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { AuthService } from '../../auth-service';
-import { Navbar } from '../../components/navbar/navbar';
-
 
 
 @Component({
@@ -14,6 +11,13 @@ import { Navbar } from '../../components/navbar/navbar';
   styleUrl: './admin-dashboard.css'
 })
 export class AdminDashboard {
-
   
+  constructor(private router: Router){
+    
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
 }
