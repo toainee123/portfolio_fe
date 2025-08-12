@@ -43,14 +43,16 @@ export class LoginPage  {
     console.log('Form submitted with data:', data);
     this.authService.login(data).subscribe({
       next: (res) => {
-        console.log('Login successful:', res);
+        window.alert('Login successful');
         const token = res.token;
         localStorage.setItem('token', token);
         if(token) {
           this.router.navigate(['/admin']);
         }
       },
-      error: (err) => err.message
+      error: (err) => {
+        window.alert('Login failed. Please check your credentials.');
+      }
     })
   }
 }

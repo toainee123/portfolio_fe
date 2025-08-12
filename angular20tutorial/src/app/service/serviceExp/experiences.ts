@@ -14,13 +14,32 @@ export class Experiences {
   getAllExperiences = (): Observable<any> => {
     return this.http.get(this.apiUrl + '/experiences');
   }
-  createExperience = (data: any): Observable<any> => {
-    return this.http.post(this.apiUrl + '/experiences', data);
+  createExperience = (data: any, token: string): Observable<any> => {
+    return this.http.post(this.apiUrl + '/experience', data, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
   }
-  updateExperience = (id: string, data: any): Observable<any> => {
-    return this.http.put(this.apiUrl + '/experiences/' + id, data);
+  updateExperience = (id: string, data: any, token: string): Observable<any> => {
+    return this.http.put(this.apiUrl + '/experience/' + id, data, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
   }
-  deleteExperience = (id: string): Observable<any> => {
-    return this.http.delete(this.apiUrl + '/experiences/' + id);
+  deleteExperience = (id: string, token: string): Observable<any> => {
+    return this.http.delete(this.apiUrl + '/experience/' + id, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+  }
+  getExperienceById = (id: string, token: string): Observable<any> => {
+    return this.http.get(this.apiUrl + '/experience/' + id, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
   }
 }
