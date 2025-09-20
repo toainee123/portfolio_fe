@@ -1,0 +1,29 @@
+/* Bắt buộc để ellipsis hoạt động ổn định với <table> */
+.table-fixed { table-layout: fixed; width: 100%; }
+
+/* Ấn định độ rộng từng cột (tuỳ bạn chỉnh px/%) */
+.col-id      { width: 30px; }
+.col-nameProject { width: 160px; }
+.col-participantsProject{ width: 160px; }
+.col-roleProject    { width: 140px; }
+.col-techStackProjects    { width: 140px; }
+.col-imageProject    { width: 140px; }
+.col-startDate    { width: 140px; }
+.col-endDate    { width: 140px; }
+.col-desc    { width: auto; }    /* chiếm phần còn lại */≈
+.col-actions { width: 140px; white-space: nowrap; }
+
+/* Ellipsis 1 dòng */
+.truncate-1 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ellipsis 2 dòng (mô tả nên 2 dòng nhìn đẹp hơn) */
+.truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

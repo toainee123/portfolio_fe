@@ -46,7 +46,6 @@ export class ExpMaangerment {
         endDate: ['', Validators.required],
         description: ['', Validators.required]
       });
-      
     }
     toYMD(date: Date): string {
       const d = new Date(date);
@@ -56,8 +55,6 @@ export class ExpMaangerment {
     open(content: any){
       this.modalService.open(content);
     }
-
-
     getAllExp(){
       this.expService.getAllExperiences().subscribe({
         next: (res: any) => {
